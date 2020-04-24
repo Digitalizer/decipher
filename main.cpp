@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 
 /*
 
@@ -6,7 +6,7 @@ decipher
 
 decipher [options] key:iv file_0 file_1 .... file_n
 
-        ±âº»°ª
+        ê¸°ë³¸ê°’
 -c      aes
 
 */
@@ -24,21 +24,21 @@ unsigned char   g_buffer_dec[BUFFER_SIZE];
 
 int get_code(char letter)
 {
-	if(letter >= '0' && letter <= '9')
-	{
-		return letter - '0';
-	}
+    if(letter >= '0' && letter <= '9')
+    {
+        return letter - '0';
+    }
 
-	letter = tolower(letter);
+    letter = tolower(letter);
 
-	if(letter >= 'a' && letter <= 'z')
-	{
-		return letter - 'a' + 10;
-	}
+    if(letter >= 'a' && letter <= 'z')
+    {
+        return letter - 'a' + 10;
+    }
 
     assert(false);
-	
-	return 0;
+
+    return 0;
 }
 
 void read_hex(const char* hex, unsigned char* bin, size_t len)
@@ -48,7 +48,7 @@ void read_hex(const char* hex, unsigned char* bin, size_t len)
 
     for(size_t i = 0; i < len; i += 2)
     {
-		*(bin++) = (get_code(*(hex + i    )) << 4) |
+        *(bin++) = (get_code(*(hex + i)) << 4) |
                     get_code(*(hex + i + 1));
     }
 }
